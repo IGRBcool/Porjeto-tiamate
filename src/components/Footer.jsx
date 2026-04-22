@@ -14,7 +14,6 @@ const Footer = () => {
                     <a href="/franquia">Franquia</a>
                     <a href="/contato">Contato</a>
                     <a href="/cardapio">Cardápio</a>
-
                 </nav>
             </div>
             <div className="flex justify-between items-center pt-10">
