@@ -3,9 +3,9 @@ import valores1 from "../assets/valores1.png"
 import valores2 from "../assets/valores2.png"
 import valores3 from "../assets/valores3.png"
 import valores4 from "../assets/valores4.png"
-
+import sair from "../assets/sair.png"
 const Valores = () => {
-    const[mostrarVideo,setMostrarVideo] = useState (false);
+    const [mostrarVideo, setMostrarVideo] = useState(false);
     return (
         <div className="p-33.75 ">
             <div className="flex gap-40">
@@ -58,11 +58,22 @@ const Valores = () => {
                 <h2 className="font-bold text-[50px] leading-15 text-marron-medio ">Coisas boas acontecem àqueles <br />
                     que gostam de café</h2>
 
-                <img src={valores4} className="w-full mt-20 rounded-2x1 cursor-pointer"/>
+                <img onClick={() => setMostrarVideo(true)} src={valores4} className="w-full mt-20 rounded-2x1 cursor-pointer" />
+
             </div>
 
-            <div className={`w-full h-screen bg-black/85 fixed top-0 left-0  justify-center items-center hidden ${mostrarVideo ? "opacity-100 visible": "opacity-0 invisible"} `}>
-                <iframe width="1100" height="600" src="https://www.youtube.com/embed/RWCP7z8ufiA" title="TIAMATE COFFEE - Seja um Franqueado" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <div className={`w-full h-screen bg-black/85 fixed top-0 left-0  justify-center items-center flex ${mostrarVideo ? "opacity-100 visible" : "opacity-0 invisible"} `}>
+
+
+                <div className="flex justify-around items-center margin-top ">
+                    <img onClick={() => setMostrarVideo(false)} src={sair} className="rounded-2xl cursor-pointer fixed top-10 right-10 w-15 h-15" />
+                </div>
+
+                {
+                    mostrarVideo ? (
+                        <iframe width="1100" height="600" src="https://www.youtube.com/embed/RWCP7z8ufiA" title="TIAMATE COFFEE - Seja um Franqueado" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    ) : null
+                }
 
             </div>
         </div>
